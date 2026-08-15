@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0f766e">
+  <meta name="description" content="Free Hematology Dry Practical learning app for MLT students.">
+  <title>Hematology Dry Practical Lab</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <div class="eyebrow">MLT STUDENT EDITION • VERSION 1</div>
+    <h1>🩸 Hematology Dry Practical Lab</h1>
+    <p>Practice procedures, calculations, morphology, viva and MCQs.</p>
+  </div>
+  <button id="installBtn" class="secondary hidden">📲 Install</button>
+</header>
+
+<main class="container">
+  <section class="hero card">
+    <div>
+      <h2>Virtual practical practice</h2>
+      <p>Learn the concept first, then calculate and test yourself. This is an educational simulator—not a substitute for supervised laboratory training.</p>
+    </div>
+    <div class="stats">
+      <div><strong id="progressCount">0</strong><span>completed</span></div>
+      <div><strong id="quizScore">—</strong><span>last quiz</span></div>
+    </div>
+  </section>
+
+  <nav class="tabs" aria-label="App sections">
+    <button class="tab active" data-tab="home">🏠 Home</button>
+    <button class="tab" data-tab="practicals">🧪 Practicals</button>
+    <button class="tab" data-tab="calculators">🧮 Calculators</button>
+    <button class="tab" data-tab="quiz">🎓 Quiz</button>
+    <button class="tab" data-tab="viva">💬 Viva</button>
+    <button class="tab" data-tab="morphology">🔬 Cell ID</button>
+    <button class="tab" data-tab="dlc">📊 DLC</button>
+    <button class="tab" data-tab="exam">📝 Exam</button>
+  </nav>
+
+  <section id="home" class="panel active">
+    <div class="grid cards-grid">
+      <button class="feature cardlink" data-go="practicals"><span>🧪</span><b>Dry Practicals</b><small>Hb, RBC, WBC, platelet, ESR, PCV, smear & more</small></button>
+      <button class="feature cardlink" data-go="calculators"><span>🧮</span><b>Calculators</b><small>Cell counts, indices, reticulocytes and INR</small></button>
+      <button class="feature cardlink" data-go="quiz"><span>🎯</span><b>MCQ Practice</b><small>Randomized questions with instant feedback</small></button>
+      <button class="feature cardlink" data-go="viva"><span>💬</span><b>Viva Trainer</b><small>Quick oral-exam revision cards</small></button>
+      <button class="feature cardlink" data-go="morphology"><span>🔬</span><b>Cell ID</b><small>Practice normal blood-cell recognition</small></button>
+      <button class="feature cardlink" data-go="dlc"><span>📊</span><b>DLC Simulator</b><small>Perform a virtual 100-cell differential</small></button>
+      <button class="feature cardlink" data-go="exam"><span>📝</span><b>Practical Exam</b><small>Timed assessment with score</small></button>
+    </div>
+    <div class="notice">
+      <b>Student tip:</b> Always follow your institution's SOP, reagent instructions, safety rules and instructor guidance for real laboratory work.
+    </div>
+  </section>
+
+  <section id="practicals" class="panel">
+    <div class="section-head"><div><h2>🧪 Practical Modules</h2><p>Tap a module to open the learning card.</p></div><input id="practicalSearch" placeholder="Search practicals…"></div>
+    <div id="practicalList" class="list"></div>
+  </section>
+
+  <section id="calculators" class="panel">
+    <div class="section-head"><div><h2>🧮 Practical Calculators</h2><p>Use training examples and check your calculation.</p></div></div>
+    <div class="calc-grid">
+      <article class="card calc">
+        <h3>RBC / WBC / Platelet Count</h3>
+        <label>Cells counted <input id="cellsCounted" type="number" value="450"></label>
+        <label>Dilution factor <input id="dilution" type="number" value="200"></label>
+        <label>Area counted (mm²) <input id="area" type="number" value="0.2" step="0.1"></label>
+        <label>Depth (mm) <input id="depth" type="number" value="0.1" step="0.01"></label>
+        <button onclick="calcCellCount()">Calculate</button>
+        <div id="cellResult" class="result"></div>
+        <small>Formula: cells/µL = counted × dilution ÷ (area × depth).</small>
+      </article>
+
+      <article class="card calc">
+        <h3>RBC Indices</h3>
+        <label>Hb (g/dL) <input id="hb" type="number" value="12" step="0.1"></label>
+        <label>Hct (%) <input id="hct" type="number" value="36" step="0.1"></label>
+        <label>RBC (million/µL) <input id="rbc" type="number" value="4" step="0.01"></label>
+        <button onclick="calcIndices()">Calculate MCV / MCH / MCHC</button>
+        <div id="indexResult" class="result"></div>
+      </article>
+
+      <article class="card calc">
+        <h3>Reticulocyte %</h3>
+        <label>Reticulocytes counted <input id="retics" type="number" value="8"></label>
+        <label>Total RBCs counted <input id="totalRbc" type="number" value="1000"></label>
+        <button onclick="calcRetic()">Calculate</button>
+        <div id="reticResult" class="result"></div>
+      </article>
+
+      <article class="card calc">
+        <h3>Corrected Reticulocyte %</h3>
+        <label>Retic % <input id="reticPct" type="number" value="2" step="0.1"></label>
+        <label>Patient Hct (%) <input id="patientHct" type="number" value="30" step="0.1"></label>
+        <label>Reference Hct (%) <input id="refHct" type="number" value="45" step="0.1"></label>
+        <button onclick="calcCorrectedRetic()">Calculate</button>
+        <div id="correctedReticResult" class="result"></div>
+      </article>
+
+      <article class="card calc">
+        <h3>INR</h3>
+        <label>Patient PT (seconds) <input id="ptPatient" type="number" value="16" step="0.1"></label>
+        <label>Mean normal PT (seconds) <input id="ptNormal" type="number" value="12" step="0.1"></label>
+        <label>ISI <input id="isi" type="number" value="1.0" step="0.1"></label>
+        <button onclick="calcINR()">Calculate</button>
+        <div id="inrResult" class="result"></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="quiz" class="panel">
+    <div class="section-head"><div><h2>🎓 MCQ Practice</h2><p>10 questions per session.</p></div><button class="secondary" onclick="startQuiz()">New Quiz</button></div>
+    <div id="quizBox" class="card quizbox"></div>
+  </section>
+
+  <section id="morphology" class="panel">
+    <div class="section-head"><div><h2>🔬 Blood Cell Identification</h2><p>Educational morphology cards. Use instructor-approved images for real identification.</p></div></div>
+    <div id="morphologyGrid" class="grid"></div>
+  </section>
+
+  <section id="dlc" class="panel">
+    <div class="section-head"><div><h2>📊 100-Cell DLC Simulator</h2><p>Click the cell type you identify. The app tracks the differential.</p></div><button class="secondary" onclick="resetDLC()">Reset</button></div>
+    <div class="card">
+      <div id="dlcCount" class="stats"></div>
+      <div id="dlcButtons" class="grid"></div>
+      <div id="dlcResult" class="result"></div>
+    </div>
+  </section>
+
+  <section id="exam" class="panel">
+    <div class="section-head"><div><h2>📝 Dry Practical Examination</h2><p>20 randomized questions • timer • automatic score.</p></div><button class="secondary" onclick="startExam()">Start / Restart</button></div>
+    <div id="examBox" class="card quizbox"></div>
+  </section>
+
+  <section id="viva" class="panel">
+    <div class="section-head"><div><h2>💬 Viva Trainer</h2><p>Tap “Show answer”, then move to the next question.</p></div><button class="secondary" onclick="nextViva()">Next</button></div>
+    <div id="vivaBox" class="card viva"></div>
+  </section>
+</main>
+
+<footer>Educational use • Hematology Dry Practical Lab V1 • No patient data stored</footer>
+<script src="app.js"></script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(console.error));
+}
+</script>
+</body>
+</html>
