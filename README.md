@@ -1,19 +1,25 @@
-# Hematology Dry Practical Lab – Version 3
+# Hematology Dry Practical Lab – Version 5
 
-Free mobile-friendly PWA for MLT hematology dry-practical revision.
+## Peripheral Blood Cell Morphology + Image Identifier
 
-### V3 additions
-- Virtual Neubauer chamber counting simulator
-- Normal blood-cell morphology cards
-- Interactive 100-cell DLC simulator
-- Timed 20-question practical examination
-- Local exam score storage
-- Printable completion certificate generator
-- V1 calculators, MCQ and viva trainer
-- PWA manifest + service worker
+V5 adds:
+- Peripheral blood smear learning section
+- Normal RBC/WBC/platelet morphology
+- Real/reference smear images
+- Image-based cell/morphology identifier
+- Immediate answer explanation
+- Image source and license shown in the app
+- RBC poikilocyte panel
+- Sickle-cell smear example
+- Neutrophil and eosinophil examples
+- Labelled formed-elements smear
+- Existing V1–V4 calculators, Neubauer simulator, DLC simulator, MCQ, Viva, exam and certificate
 
-### Hosting
-Upload all files to the root of a GitHub Pages repository (HTTPS). After deployment, open the Pages URL in Chrome and use Add to Home screen / Install app where offered.
+## Evidence basis
+Morphology terminology and grading follow the principles of the International Council for Standardization in Haematology (ICSH) recommendations. Peripheral smear examination should use a well-prepared, appropriately stained film and the appropriate monolayer area; thick areas and the feathered edge can introduce artifacts.
 
-### Educational safety
-This app is a learning simulator. It does not diagnose disease or replace supervised laboratory training, institutional SOPs, quality control, or professional judgment. The certificate is an educational completion certificate and is not a professional credential.
+## Important
+This is an educational app. Image identification does not establish a diagnosis. Use validated laboratory SOPs, reference texts, quality control and supervised microscopy for practical training.
+
+## Image licensing
+Images are externally hosted from Wikimedia Commons. Each image card includes its source and license information. Review the source page before redistribution and retain required attribution.

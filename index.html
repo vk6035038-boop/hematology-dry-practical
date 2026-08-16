@@ -42,6 +42,9 @@
     <button class="tab" data-tab="exam">📝 Exam</button>
 <button class="tab" data-tab="chamber">🔬 Neubauer</button>
 <button class="tab" data-tab="certificate">📜 Certificate</button>
+<button class="tab" data-tab="reference">📚 Reference</button>
+<button class="tab" data-tab="morphology">🩸 Smear Images</button>
+<button class="tab" data-tab="identifier">🔎 Cell Identifier</button>
   </nav>
 
   <section id="home" class="panel active">
@@ -55,6 +58,8 @@
       <button class="feature cardlink" data-go="exam"><span>📝</span><b>Practical Exam</b><small>Timed assessment with score</small></button>
       <button class="feature cardlink" data-go="chamber"><span>🔬</span><b>Neubauer Simulator</b><small>Virtual chamber counting practice</small></button>
       <button class="feature cardlink" data-go="certificate"><span>📜</span><b>Certificate</b><small>Printable completion certificate</small></button>
+<button class="feature cardlink" data-go="reference"><span>📚</span><b>Reference Values</b><small>Evidence-based adult teaching intervals</small></button>
+<button class="feature cardlink" data-go="morphology"><span>🩸</span><b>Smear Images</b><small>Real reference images with credits</small></button>
     </div>
     <div class="notice">
       <b>Student tip:</b> Always follow your institution's SOP, reagent instructions, safety rules and instructor guidance for real laboratory work.
@@ -123,8 +128,19 @@
   </section>
 
   <section id="morphology" class="panel">
-    <div class="section-head"><div><h2>🔬 Blood Cell Identification</h2><p>Educational morphology cards. Use instructor-approved images for real identification.</p></div></div>
-    <div id="morphologyGrid" class="grid"></div>
+    <div class="section-head"><div><h2>🩸 Peripheral Blood Morphology</h2>
+    <p>Real/reference smear images with concise morphology notes. Always correlate with your laboratory SOP and a qualified morphologist.</p></div></div>
+    <div id="morphologyGallery" class="image-gallery"></div>
+    <div class="card">
+      <h3>What to identify on a peripheral smear</h3>
+      <div class="morph-grid">
+        <div><b>RBC</b><p>Size, shape, colour, central pallor, inclusions and distribution.</p></div>
+        <div><b>WBC</b><p>Nuclear segmentation/shape, chromatin, cytoplasm and granules.</p></div>
+        <div><b>Platelets</b><p>Number, size, granularity and clumping.</p></div>
+        <div><b>Smear quality</b><p>Look in the appropriate monolayer area; thick areas and the feathered edge can distort morphology.</p></div>
+      </div>
+    </div>
+    <div class="card source-note"><b>Image licensing:</b> Each image card shows its source and license. Keep the attribution when redistributing the app.</div>
   </section>
 
   <section id="dlc" class="panel">
@@ -161,6 +177,70 @@
       <button class="secondary" onclick="printCertificate()">Print / Save PDF</button>
       <div id="certificatePreview" class="certificate"></div>
     </div>
+  </section>
+
+  <section id="reference" class="panel">
+    <div class="section-head"><div><h2>📚 Evidence-Based Reference & Values</h2>
+    <p>Adult teaching intervals are examples. The performing laboratory's validated reference interval takes priority.</p></div></div>
+    <div class="card">
+      <h3>Common adult CBC teaching intervals</h3>
+      <div class="table-wrap"><table class="ref-table">
+      <thead><tr><th>Parameter</th><th>Teaching interval</th><th>Unit</th></tr></thead>
+      <tbody>
+      <tr><td>Hemoglobin – adult male</td><td>13–18</td><td>g/dL</td></tr>
+      <tr><td>Hemoglobin – adult female, non-pregnant</td><td>12–16</td><td>g/dL</td></tr>
+      <tr><td>Hematocrit – adult male</td><td>40–54</td><td>%</td></tr>
+      <tr><td>Hematocrit – adult female</td><td>36–48</td><td>%</td></tr>
+      <tr><td>RBC – adult male</td><td>4.6–6.2</td><td>×10⁶/µL</td></tr>
+      <tr><td>RBC – adult female</td><td>4.2–5.4</td><td>×10⁶/µL</td></tr>
+      <tr><td>MCV</td><td>80–100</td><td>fL</td></tr>
+      <tr><td>MCH</td><td>27–32</td><td>pg/cell</td></tr>
+      <tr><td>RDW</td><td>11.5–15</td><td>%</td></tr>
+      <tr><td>WBC</td><td>4,500–11,000</td><td>/µL</td></tr>
+      <tr><td>Neutrophils</td><td>40–60</td><td>%</td></tr>
+      <tr><td>Lymphocytes</td><td>20–40</td><td>%</td></tr>
+      <tr><td>Monocytes</td><td>2–8</td><td>%</td></tr>
+      <tr><td>Eosinophils</td><td>0–4</td><td>%</td></tr>
+      <tr><td>Basophils</td><td>0.5–1</td><td>%</td></tr>
+      <tr><td>Platelets</td><td>150,000–400,000</td><td>/µL</td></tr>
+      </tbody></table></div>
+      <p class="source-note">Source: El Brihi J, Pathak S. <i>Normal and Abnormal Complete Blood Count With Differential</i>. StatPearls/NCBI Bookshelf, updated 8 June 2024. Intervals vary by age, sex, pregnancy, method and laboratory population.</p>
+    </div>
+    <div class="card">
+      <h3>Core practical formulas</h3>
+      <ul class="formula-list">
+        <li><b>MCV (fL)</b> = Hct (%) × 10 / RBC (million/µL)</li>
+        <li><b>MCH (pg)</b> = Hb (g/dL) × 10 / RBC (million/µL)</li>
+        <li><b>MCHC (g/dL)</b> = Hb (g/dL) × 100 / Hct (%)</li>
+        <li><b>Absolute count</b> = Total WBC × differential % / 100</li>
+        <li><b>Corrected reticulocyte %</b> = Retic % × patient Hct / normal Hct</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Peripheral smear essentials</h3>
+      <p>For routine morphology, examine a well-made, appropriately stained smear in the area where RBCs are mostly singly distributed and show appropriate central pallor. Oil-immersion microscopy is used for detailed morphology. Slide artifacts can mimic disease.</p>
+      <p>Normal mature RBCs are biconcave discs, about 7.5 µm in diameter, with central pallor about 30–45% of the cell diameter. Most platelets are about 1–3 µm.</p>
+      <p>ICSH recommends standardized nomenclature and grading for RBC, WBC and platelet morphological abnormalities.</p>
+    </div>
+    <div class="card">
+      <h3>Primary references</h3>
+      <ol>
+        <li>Keohane EM, Preston MM, Mirza K, Walenga JM, eds. <i>Rodak's Hematology: Clinical Principles and Applications</i>. 7th ed. Elsevier, 2024.</li>
+        <li>Palmer L, Briggs C, McFadden S, et al. ICSH Recommendations for Standardization of Nomenclature and Grading of Peripheral Blood Cell Morphological Features. <i>Int J Lab Hematol</i>. 2015.</li>
+        <li>El Brihi J, Pathak S. <i>Normal and Abnormal Complete Blood Count With Differential</i>. StatPearls/NCBI Bookshelf; 2024.</li>
+        <li>Lynch EC. Peripheral Blood Smear. In: <i>Clinical Methods</i>. NCBI Bookshelf.</li>
+        <li>WHO. <i>Guideline on haemoglobin cutoffs to define anaemia in individuals and populations</i>. 2024.</li>
+      </ol>
+      <p class="source-note">This app summarizes concepts and does not reproduce copyrighted textbook chapters or figures.</p>
+    </div>
+  </section>
+
+  <section id="identifier" class="panel">
+    <div class="section-head"><div>
+      <h2>🔎 Peripheral Blood Cell Image Identifier</h2>
+      <p>Study the image, choose the cell/morphology, then reveal the explanation. This is a learning aid—not a diagnostic tool.</p>
+    </div></div>
+    <div id="identifierApp"></div>
   </section>
 
   <section id="exam" class="panel">
