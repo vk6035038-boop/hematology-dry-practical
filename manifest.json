@@ -1,0 +1,40 @@
+{
+  "name": "Hematology Dry Practical Lab \u2013 V2",
+  "short_name": "Heme Practical V2",
+  "description": "Free educational dry-practical simulator for MLT students.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f3f7f7",
+  "theme_color": "#0f766e",
+  "categories": [
+    "education",
+    "medical"
+  ],
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Calculators",
+      "short_name": "Calculators",
+      "url": "./#calculators"
+    },
+    {
+      "name": "DLC Simulator",
+      "short_name": "DLC",
+      "url": "./#dlc"
+    },
+    {
+      "name": "Practical Exam",
+      "short_name": "Exam",
+      "url": "./#exam"
+    }
+  ]
+}

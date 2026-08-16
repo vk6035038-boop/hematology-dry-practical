@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<rect width="512" height="512" rx="110" fill="#0f766e"/>
+<circle cx="256" cy="235" r="135" fill="#fff"/>
+<path d="M256 105c-48 66-94 112-94 171a94 94 0 0 0 188 0c0-59-46-105-94-171z" fill="#dc2626"/>
+<circle cx="222" cy="245" r="25" fill="#fff" opacity=".8"/>
+<text x="256" y="430" text-anchor="middle" font-family="Arial" font-size="52" font-weight="700" fill="#fff">HEM</text>
+</svg>
