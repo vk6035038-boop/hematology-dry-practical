@@ -40,6 +40,8 @@
     <button class="tab" data-tab="morphology">🔬 Cell ID</button>
     <button class="tab" data-tab="dlc">📊 DLC</button>
     <button class="tab" data-tab="exam">📝 Exam</button>
+<button class="tab" data-tab="chamber">🔬 Neubauer</button>
+<button class="tab" data-tab="certificate">📜 Certificate</button>
   </nav>
 
   <section id="home" class="panel active">
@@ -51,6 +53,8 @@
       <button class="feature cardlink" data-go="morphology"><span>🔬</span><b>Cell ID</b><small>Practice normal blood-cell recognition</small></button>
       <button class="feature cardlink" data-go="dlc"><span>📊</span><b>DLC Simulator</b><small>Perform a virtual 100-cell differential</small></button>
       <button class="feature cardlink" data-go="exam"><span>📝</span><b>Practical Exam</b><small>Timed assessment with score</small></button>
+      <button class="feature cardlink" data-go="chamber"><span>🔬</span><b>Neubauer Simulator</b><small>Virtual chamber counting practice</small></button>
+      <button class="feature cardlink" data-go="certificate"><span>📜</span><b>Certificate</b><small>Printable completion certificate</small></button>
     </div>
     <div class="notice">
       <b>Student tip:</b> Always follow your institution's SOP, reagent instructions, safety rules and instructor guidance for real laboratory work.
@@ -129,6 +133,33 @@
       <div id="dlcCount" class="stats"></div>
       <div id="dlcButtons" class="grid"></div>
       <div id="dlcResult" class="result"></div>
+    </div>
+  </section>
+
+  <section id="chamber" class="panel">
+    <div class="section-head"><div><h2>🔬 Virtual Neubauer Chamber</h2><p>Select a chamber square and practise counting the displayed training cells.</p></div><button class="secondary" onclick="newChamber()">New Slide</button></div>
+    <div class="card chamber-card">
+      <div class="chamber-top"><span class="tag">RBC practice</span><span id="chamberCount" class="tag">0 counted</span></div>
+      <div id="chamberGrid" class="neubauer" aria-label="Virtual Neubauer chamber"></div>
+      <div class="chamber-controls">
+        <button onclick="countSelected()">Count selected cells</button>
+        <button class="secondary" onclick="checkChamber()">Check result</button>
+      </div>
+      <div id="chamberResult" class="result"></div>
+      <small>Training simulation only. Use your validated institutional SOP for real chamber counting.</small>
+    </div>
+  </section>
+
+  <section id="certificate" class="panel">
+    <div class="section-head"><div><h2>📜 Certificate Generator</h2><p>Create a simple local completion certificate after the dry-practical exam.</p></div></div>
+    <div class="card certificate-form">
+      <label>Student name<input id="certName" placeholder="Enter student name"></label>
+      <label>College / Institution<input id="certCollege" placeholder="Enter college or institution"></label>
+      <label>Course<input id="certCourse" value="B.Sc. Medical Laboratory Technology"></label>
+      <label>Achievement<input id="certAchievement" value="Completed Hematology Dry Practical Lab"></label>
+      <button onclick="generateCertificate()">Generate Certificate</button>
+      <button class="secondary" onclick="printCertificate()">Print / Save PDF</button>
+      <div id="certificatePreview" class="certificate"></div>
     </div>
   </section>
 

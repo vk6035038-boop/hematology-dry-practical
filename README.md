@@ -1,19 +1,19 @@
-# Hematology Dry Practical Lab – Version 2
+# Hematology Dry Practical Lab – Version 3
 
-Free student-focused PWA for hematology dry-practical revision.
+Free mobile-friendly PWA for MLT hematology dry-practical revision.
 
-## V2 features
-- V1 practical modules and calculators
+### V3 additions
+- Virtual Neubauer chamber counting simulator
+- Normal blood-cell morphology cards
 - Interactive 100-cell DLC simulator
-- Normal blood-cell morphology identification cards
-- 20-question timed dry-practical examination
-- MCQ quiz and viva trainer
-- Local score storage
-- Installable/offline PWA structure
-- Mobile-friendly interface
+- Timed 20-question practical examination
+- Local exam score storage
+- Printable completion certificate generator
+- V1 calculators, MCQ and viva trainer
+- PWA manifest + service worker
 
-## Important
-This is an educational simulator. It is not a diagnostic device and does not replace supervised laboratory training, institutional SOPs, quality control, or professional judgment.
+### Hosting
+Upload all files to the root of a GitHub Pages repository (HTTPS). After deployment, open the Pages URL in Chrome and use Add to Home screen / Install app where offered.
 
-## Hosting
-Serve the folder over HTTPS (or localhost during development) for full PWA installation/offline behavior.
+### Educational safety
+This app is a learning simulator. It does not diagnose disease or replace supervised laboratory training, institutional SOPs, quality control, or professional judgment. The certificate is an educational completion certificate and is not a professional credential.
